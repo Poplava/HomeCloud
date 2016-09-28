@@ -9,4 +9,4 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "unlink('composer-setup.php');"
 
 COPY sites-available /etc/apache2/sites-available
-RUN a2ensite poplava.net_non-ssl.conf
+RUN a2ensite homecloud_non-ssl.conf
