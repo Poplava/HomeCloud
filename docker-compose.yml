@@ -8,3 +8,11 @@ services:
     volumes:
       - ./home:/var/www
       - ./project:/var/project
+    links:
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - 5672
+      - "15672:15672"
