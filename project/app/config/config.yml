@@ -85,12 +85,12 @@ old_sound_rabbit_mq:
             # requires php-amqplib v2.4.1+
             heartbeat: 0
     producers:
-        upload_picture:
+        upload:
             connection:       default
-            exchange_options: {name: 'upload-picture', type: direct}
+            exchange_options: {name: 'upload', type: direct}
     consumers:
-        upload_picture:
+        upload:
             connection:       default
-            exchange_options: {name: 'upload-picture', type: direct}
-            queue_options:    {name: 'upload-picture'}
+            exchange_options: {name: 'upload', type: direct}
+            queue_options:    {name: 'upload'}
             callback:         upload_consumer

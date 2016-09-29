@@ -9,7 +9,8 @@ class Upload implements ConsumerInterface
 {
     public function execute(AMQPMessage $msg)
     {
-        print_r(unserialize($msg->body));
+        @unlink($msg->body);
+        print_r($msg->body);
         print_r("\n");
     }
 }
