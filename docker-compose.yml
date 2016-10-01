@@ -9,7 +9,18 @@ services:
       - ./home:/var/www
       - ./project:/var/project
     links:
+      - mysql
       - rabbitmq
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
+    environment:
+      MYSQL_DATABASE: homecloud
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
   rabbitmq:
     image: rabbitmq:management
