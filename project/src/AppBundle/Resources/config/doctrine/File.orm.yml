@@ -1,0 +1,18 @@
+AppBundle\Entity\File:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\FileRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        hash:
+            type: string
+            length: '32'
+            unique: true
+        size:
+            type: bigint
+    lifecycleCallbacks: {  }

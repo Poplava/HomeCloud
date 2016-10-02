@@ -5,8 +5,9 @@ services:
     working_dir: /var/project
     ports:
       - "3080:80"
+      - "2222:22"
     volumes:
-      - ./home:/var/www
+      - ./home:/root
       - ./project:/var/project
     links:
       - mysql

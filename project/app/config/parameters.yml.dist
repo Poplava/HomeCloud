@@ -19,4 +19,4 @@ parameters:
     rabbitmq_vhost: '/'
 
     tmp_dir: /var/www/tmp
-    dest_dir: /var/www/storage
+    storage_dir: /var/www/storage

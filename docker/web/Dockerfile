@@ -10,14 +10,15 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libicu-dev \
     openssh-server \
-    supervisor
+    supervisor \
+    mysql-client
 
 # Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');"
 
-RUN docker-php-ext-install -j$(nproc) zip intl bcmath exif sockets
+RUN docker-php-ext-install -j$(nproc) zip intl bcmath exif sockets pdo_mysql
 
 # Apache
 COPY sites-available /etc/apache2/sites-available

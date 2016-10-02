@@ -1,0 +1,33 @@
+AppBundle\Entity\Photo:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\PhotoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
+        exifGps:
+            type: string
+            length: 255
+            column: exif_gps
+        path:
+            type: string
+            length: 255
+        mimeType:
+            type: string
+            length: 255
+            column: mime_type
+    oneToOne:
+        file:
+            targetEntity: File
+            joinColumn:
+                name: file_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
